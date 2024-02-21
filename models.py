@@ -11,6 +11,7 @@ class Student(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     grade = Column(String)
+    grades = relationship("Grade", back_populates="student")
 
     def __repr__(self):
         return f"<Student(name='{self.name}', grade='{self.grade}')>"
@@ -20,6 +21,7 @@ class Teacher(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     subject = Column(String)
+    classes = relationship("Class", back_populates="teacher")
 
     def __repr__(self):
         return f"<Teacher(name='{self.name}', subject='{self.subject}')>"
